@@ -30,8 +30,8 @@ namespace EmployeeSystem.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateOnly>("DateOfBirth")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -51,8 +51,8 @@ namespace EmployeeSystem.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateOnly>("StartDate")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -84,8 +84,8 @@ namespace EmployeeSystem.Data.Migrations
                     b.Property<int>("EmployeeId")
                         .HasColumnType("int");
 
-                    b.Property<DateOnly>("DateOfEntryIntoOffice")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("DateOfEntryIntoOffice")
+                        .HasColumnType("datetime2");
 
                     b.Property<bool>("IsManagerialPosition")
                         .HasColumnType("bit");

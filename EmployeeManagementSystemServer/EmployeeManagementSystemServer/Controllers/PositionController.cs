@@ -53,6 +53,7 @@ namespace EmployeeSystem.API.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(int id, [FromBody] PositionPostModel position)
         {
+            
             var emp = await _positionService.GetPositionByIdAsync(id);
             if (emp is null)
             {
@@ -61,7 +62,7 @@ namespace EmployeeSystem.API.Controllers
             _mapper.Map(position, emp);
             await _positionService.UpdatePositionAsync(emp.Id, emp);
             emp = await _positionService.GetPositionByIdAsync(id);
-            return Ok(_mapper.Map<EmployeeDto>(emp));
+            return Ok(_mapper.Map<PositionDto>(emp));
         }
 
         // DELETE api/<PositionController>/5

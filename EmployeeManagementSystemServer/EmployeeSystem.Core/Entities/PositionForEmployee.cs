@@ -11,10 +11,9 @@ namespace EmployeeSystem.Core.Entities
     
     public class PositionForEmployee
     {
+        
         public int PositionId { get; set; }
         public int EmployeeId { get; set; }
-        //public Position Position { get; set; }
-        //public Employee Employee { get; set; }
         public bool IsManagerialPosition { get; set; }
         public DateTime DateOfEntryIntoOffice { get; set; }
     }

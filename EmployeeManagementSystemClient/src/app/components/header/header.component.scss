@@ -1,0 +1,17 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgb(11, 9, 9); /* צבע רקע לשולי הכותרת */
+    color: white; /* צבע טקסט לשולי הכותרת */
+  
+    .title {
+      font-family: 'Roboto', sans-serif; 
+      font-size: 24px;
+      font-weight: bold;
+    }
+    
+    
+  }
+  

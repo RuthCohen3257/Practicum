@@ -17,6 +17,7 @@ namespace EmployeeSystem.Core.DTOs
         public DateTime StartDate { get; set; }
         public Gender Gender { get; set; }
         public List<PositionForEmployeeDto> Positions { get; set; }
-        public bool IsActive { get; set; }=true;
+        public bool IsActive { get; set; }
+
     }
 }

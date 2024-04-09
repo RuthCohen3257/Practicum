@@ -19,6 +19,7 @@ namespace EmployeeSystem.Data.Repositories
 
         public async Task<Employee> AddEmployeeAsync(Employee employee)
         {
+           
             _dataContext.EmployeeList.Add(employee);
             await _dataContext.SaveChangesAsync();
             return employee;
@@ -33,7 +34,11 @@ namespace EmployeeSystem.Data.Repositories
 
         public async Task<List<Employee>> GetEmployeeAsync()
         {
-            return await _dataContext.EmployeeList.ToListAsync();
+            return await _dataContext.EmployeeList
+                                 .Include(e => e.Positions)
+                                    
+                                 .Where(e => e.IsActive)
+                                 .ToListAsync();
         }
 
         public async Task<Employee> GetEmployeeByIdAsync(int id)

@@ -1,4 +1,5 @@
-﻿using EmployeeSystem.Core.Entities;
+﻿using EmployeeSystem.Core.DTOs;
+using EmployeeSystem.Core.Entities;
 
 namespace EmployeeSystem.API.Models
 {
@@ -9,7 +10,7 @@ namespace EmployeeSystem.API.Models
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
         public DateTime StartDate { get; set; }
-        public Gender Gender { get; set; }
-        public List<PositionForEmployee> Positions { get; set; }
+        public string Gender { get; set; }
+        public List<PositionForEmployeePostModel> Positions { get; set; }
     }
 }

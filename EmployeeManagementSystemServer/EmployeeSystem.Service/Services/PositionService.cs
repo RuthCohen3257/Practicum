@@ -34,7 +34,7 @@ namespace EmployeeSystem.Service.Services
 
         public async Task<Position> GetPositionByIdAsync(int id)
         {
-            return await GetPositionByIdAsync(id);
+            return await _positionRepository.GetPositionByIdAsync(id);
         }
 
         public async Task<Position> UpdatePositionAsync(int id, Position position)

@@ -22,6 +22,7 @@ namespace EmployeeSystem.Core.Entities
         public Gender Gender { get; set; }
         public bool IsActive { get; set; }=true;
         public List<PositionForEmployee> Positions { get; set; }
+        
 
     }
 }

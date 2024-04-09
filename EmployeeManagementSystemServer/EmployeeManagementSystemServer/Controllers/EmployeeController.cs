@@ -38,13 +38,14 @@ namespace EmployeeSystem.API.Controllers
             {
                 return NotFound();
             }
-            return Ok(_mapper.Map<EmployeeDto>(employee));
+            return Ok(_mapper.Map<Employee>(employee));
         }
 
         // POST api/<EmployeeController>
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] EmployeePostModel employee)
         {
+
             var newEmp = await _employeeService.AddEmployeeAsync(_mapper.Map<Employee>(employee));
             return Ok(_mapper.Map<EmployeeDto>(newEmp));
         }

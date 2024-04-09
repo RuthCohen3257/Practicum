@@ -1,0 +1,12 @@
+.modal {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    height: 80%; /* גובה הקומפוננטה */
+    max-height: 600px; /* הגובה המקסימלי של הקומפוננטה */
+    overflow: auto; 
+  }
+  .mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }

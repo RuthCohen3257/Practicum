@@ -1,18 +1,18 @@
 import { PositionForEmployee } from "./positionForEmployee.model"
 
-enum Gender
+export enum Gender
 {
     Male,
     Female
 }
 export class Employee{
     id !:number
-    idNumber!:number
+    idNumber!:string
     firstName !:string
     lastName !:string
     dateOfBirth !:Date
     startDate !:Date
-    gender !:Gender 
+    gender!: string 
     isActive !: boolean 
     positions !:PositionForEmployee[]
 }

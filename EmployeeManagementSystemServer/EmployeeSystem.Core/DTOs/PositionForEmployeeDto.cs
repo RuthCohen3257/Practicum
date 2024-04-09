@@ -9,7 +9,7 @@ namespace EmployeeSystem.Core.DTOs
 {
     public class PositionForEmployeeDto
     {
-        public PositionDto Position { get; set; }
+        public int PositionId { get; set; }
         public bool IsManagerialPosition { get; set; }
         public DateTime DateOfEntryIntoOffice { get; set; }
     }
