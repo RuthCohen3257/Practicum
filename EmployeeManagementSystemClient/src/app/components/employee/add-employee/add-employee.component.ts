@@ -69,7 +69,7 @@ export class AddEmployeeComponent implements OnInit {
   loadPositions(): void {
     this.positionService.getPositions().subscribe(
       (positionList: Position[]) => {
-        console.log(positionList)
+        //console.log(positionList)
         this.positions1 = positionList;
         this.addPositionControl();
       },

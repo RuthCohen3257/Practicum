@@ -5,7 +5,6 @@ import { AddEmployeeComponent } from '../add-employee/add-employee.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Employee } from '../../../models/employee.model';
 import { EditEmployeeComponent } from '../edit-employee/edit-employee.component';
-import { EmployeeDetailsComponent } from '../employee-details/employee-details.component';
 import { ExcelService } from '../excel.service';
 import { Position } from '../../../models/position.model';
 import { PositionService } from '../position.service';
@@ -82,7 +81,7 @@ export class EmployeesComponent implements AfterViewInit,OnInit{
       // Call  service to delete employee from the server 
       this._employeeService.deleteEmployee(employee.id).subscribe({
         next: (res) => {
-          console.log(res)
+          //console.log(res)
           console.log("deleted succssesfully")
         },
         error: (err) => {
@@ -97,18 +96,16 @@ export class EmployeesComponent implements AfterViewInit,OnInit{
   }
 
   editData(emp: Employee): void {
-    console.log("before",emp)
     const dialogRef = this.dialog.open(EditEmployeeComponent, {
       data:emp,
       width: '500px',
       // Pass employee data to the dialog
     });
-    console.log("after open",emp)
+    
     dialogRef.afterClosed().subscribe(result => {
       // Handle dialog close event here if needed
       this._employeeService.getEmployees().subscribe({
         next: (res: Employee[]) => {
-          console.log("after close edit")
           this.employeesArray = res;
           this.dataSource = new MatTableDataSource<Employee>(this.employeesArray);
           this.dataSource.paginator = this.paginator;
@@ -117,17 +114,6 @@ export class EmployeesComponent implements AfterViewInit,OnInit{
           console.log(err);
         }
       });
-    });
-  }
-  
-  openEmployeeDetails(employee: Employee): void {
-    const dialogRef = this.dialog.open(EmployeeDetailsComponent, {
-      width: '500px',
-      data: { employee } // Pass employee data to the dialog
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      // Handle dialog close event here if needed
     });
   }
 

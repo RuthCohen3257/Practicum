@@ -34,7 +34,6 @@ export class EditEmployeeComponent  {
 
 
   initForm(): void {
-    console.log("on init form",this.employee)
 
     // Define form controls and validators
     this.employeeForm = this.fb.group({
@@ -42,8 +41,8 @@ export class EditEmployeeComponent  {
       idNumber: [this.employee.idNumber, [Validators.required, Validators.pattern(/^\d{9}$/)]],
       firstName: [this.employee.firstName, [Validators.required, Validators.pattern(/^[a-zA-Z]+$/)]],
       lastName: [this.employee.lastName, [Validators.required, Validators.pattern(/^[a-zA-Z]+$/)]],
-      dateOfBirth: [this.employee.dateOfBirth, Validators.required],
-      startDate: [this.employee.startDate, Validators.required],
+      dateOfBirth: [new Date(this.employee.dateOfBirth), Validators.required],
+      startDate: [new Date(this.employee.startDate), Validators.required],
       gender: [this.employee.gender=='0'?'Male':'Female', Validators.required],
       positions: this.fb.array([], Validators.required),
     }, { validators: this.customValidator });
@@ -90,7 +89,7 @@ export class EditEmployeeComponent  {
       const positionGroup = this.fb.group({
         positionId: [position.positionId, Validators.required],
         isManagerialPosition: [position.isManagerialPosition, Validators.required],
-        dateOfEntryIntoOffice: [position.dateOfEntryIntoOffice,[Validators.required,this.entryDateValidator()] ]
+        dateOfEntryIntoOffice: [new Date(position.dateOfEntryIntoOffice),[Validators.required,this.entryDateValidator()] ]
       });
      
       positions.push(positionGroup);
@@ -118,7 +117,7 @@ export class EditEmployeeComponent  {
       this.employeeService.updateEmployee(updatedEmployee).subscribe({
         next: (res) => {
           this.closeModal();
-          console.log("after close")
+          
         },
         error: (err) => {
           console.log(err);
